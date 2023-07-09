@@ -4,7 +4,7 @@ st.write('#### This online calculator calculates the direction and magnitude of 
 st.write('')
 st.write('#### 1. Pedestal information')
 length = st.slider('How long the pedestal is? (m)', 0, 100)
-rotation = st.slider('Where the rotation axis is? (Based on the far left, m)', 0, int(length))
+rotation = st.slider('Where is the rotation axis? (Based on the far left, m)', 0, int(length))
 WeightPedestal = st.text_input('What is the mass of the pedestal? (kg)')
 st.write('')
 st.write('#### 2. object information')
