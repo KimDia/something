@@ -1,4 +1,7 @@
 import streamlit as st
+from PIL import Image
+image = Image.open('TorqueCalculator.jpg')
+st.image(image)
 st.write('# Torque calculator')
 st.write('#### This online calculator calculates the direction and magnitude of the torque.')
 st.write('')
@@ -16,10 +19,16 @@ if st.button('Calculate'):
     result = -((int(length)/2)-int(rotation))*int(MassPedestal)+(int(rotation)-int(object))*int(MassObject)
     if result<0:
         st.write('### The direction of the torque is clockwise, and its magnitude is', abs(result)*10, 'N.')
+        image1 = Image.open('TorqueClockwise.png')
+        st.image(image1)
     elif result>0:
         st.write('### The direction of the torque is counterclockwise, and its magnitude is', abs(result)*10, 'N.')
+        image2 = Image.open('TorqueCounterclockwise.png')
+        st.image(image2)
     else:
         st.write('### The Torque is 0 and the pedestal is stable.')
+        image3 = Image.open('TorqueZero.png')
+        st.image(image3)
     st.write('The acceleration of gravity is 10m/s')
 else:
     st.write('Press button to calculate Torque...')
