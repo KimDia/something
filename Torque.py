@@ -9,20 +9,20 @@ st.write('#### This online calculator calculates the direction and magnitude of 
 st.write('')
 
 st.write('#### 1. Beam information')
-length = st.slider('How long the Beam is? (m)', 0, 100)
-rotation = st.slider('Where is the rotation axis? (Based on the far left, m)', 0, int(length))
-MassBeam = st.text_input('What is the mass of the Beam? (kg)')
+length = int(st.slider('How long the Beam is? (m)', 0, 100))
+rotation = int(st.slider('Where is the rotation axis? (Based on the far left, m)', 0, length))
+MassBeam = float(st.text_input('What is the mass of the Beam? (kg)'))
 st.write('')
 
 st.write('#### 2. Object information')
-MassObject = st.text_input('What is the mass of the object? (kg)')
+MassObject = float(st.text_input('What is the mass of the object? (kg)'))
 
-object = st.slider('Where is the object? (Based on the far left, m)', 0, int(length))
+object = int(st.slider('Where is the object? (Based on the far left, m)', 0, length))
 st.write('')
 
 if st.button('Calculate'):
     st.write('Done!')
-    result = -((int(length)/2)-int(rotation))*float(MassBeam)+(int(rotation)-int(object))*float(MassObject)
+    result = -((length/2)-rotation)*MassBeam+(rotation-object)*MassObject
 
     if result<0:
         st.write('### The direction of the torque is clockwise, and its magnitude is', abs(result)*10, 'N.')
