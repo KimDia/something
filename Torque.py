@@ -16,12 +16,13 @@ st.write('')
 
 st.write('#### 2. Object information')
 MassObject = st.text_input('What is the mass of the object? (kg)')
+
 object = st.slider('Where is the object? (Based on the far left, m)', 0, int(length))
 st.write('')
 
 if st.button('Calculate'):
     st.write('Done!')
-    result = -((int(length)/2)-int(rotation))*int(MassBeam)+(int(rotation)-int(object))*int(MassObject)
+    result = -((int(length)/2)-int(rotation))*float(MassBeam)+(int(rotation)-int(object))*float(MassObject)
 
     if result<0:
         st.write('### The direction of the torque is clockwise, and its magnitude is', abs(result)*10, 'N.')
