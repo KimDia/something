@@ -1,20 +1,20 @@
 import streamlit as st
 
 from PIL import Image
-
 image = Image.open('TorqueCalculator.jpg')
 st.image(image)
-st.write('# Torque calculator')
+
+st.title('Torque calculator')
 st.write('#### This online calculator calculates the direction and magnitude of the torque.')
 st.write('')
 
-st.write('#### 1. Beam information')
+st.header('1. Beam information')
 length = int(st.slider('How long the Beam is? (m)', 0, 100))
 rotation = int(st.slider('Where is the rotation axis? (Based on the far left, m)', 0, length))
 MassBeam = float(st.text_input('What is the mass of the Beam? (kg)'))
 st.write('')
 
-st.write('#### 2. Object information')
+st.header('2. Object information')
 MassObject = float(st.text_input('What is the mass of the object? (kg)'))
 
 object = int(st.slider('Where is the object? (Based on the far left, m)', 0, length))
@@ -38,7 +38,6 @@ if st.button('Calculate'):
         st.write('### The Torque is 0 and the Beam is stable.')
         image3 = Image.open('TorqueZero.png')
         st.image(image3)
-    st.write('The acceleration of gravity is 10m/s')
-
-else:
-    st.write('Press button to calculate Torque...')
+    st.write('The acceleration of gravity is 10m/s²')
+    st.write('')
+    st.write('If you want to calculate the center of gravity, click this! https://torquecalculator2.streamlit.app/')
